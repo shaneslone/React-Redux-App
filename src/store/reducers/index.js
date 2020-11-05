@@ -2,12 +2,12 @@ import {
   FETCH_SUMMONER_START,
   FETCH_SUMMONER_SUCCESS,
   FETCH_SUMMONER_ERROR,
-  FETCH_CHAMPION_MASTERY,
+  FETCH_RANKED_INFO,
 } from '../actions';
 
 const initialState = {
   isLoading: false,
-  championMastery: [],
+  rankedInfo: [],
   error: '',
   summonerInfo: {},
 };
@@ -24,7 +24,6 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         summonerInfo: action.payload,
-        isLoading: false,
       };
     case FETCH_SUMMONER_ERROR:
       return {
@@ -32,10 +31,11 @@ export const reducer = (state = initialState, action) => {
         isLoading: false,
         error: action.payload,
       };
-    case FETCH_CHAMPION_MASTERY:
+    case FETCH_RANKED_INFO:
       return {
         ...state,
-        championMastery: action.payload,
+        rankedInfo: action.payload,
+        isLoading: false,
       };
     default:
       return state;
