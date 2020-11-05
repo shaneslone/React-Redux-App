@@ -3,6 +3,7 @@ import { StyledHeader } from '../styles';
 import { connect } from 'react-redux';
 import { fetchSummoner } from '../store/actions';
 import { useForm } from '../hooks/useForm';
+import leaguelogo from '../images/leaguelogo.png';
 
 function Header(props) {
   const [value, handleChanges] = useForm('');
@@ -14,6 +15,7 @@ function Header(props) {
   return (
     <StyledHeader>
       <h1>League of Legends Summoner Info</h1>
+      <img src={leaguelogo} alt='league of legends logo' />
       <div className='searchBox'>
         <form onSubmit={handleSubmit}>
           <label>
