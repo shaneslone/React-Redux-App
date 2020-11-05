@@ -14,6 +14,11 @@ export const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
 `;
 
 export const RankedInfoCard = styled.div`
@@ -37,6 +42,7 @@ export const StyledHeader = styled.header`
     text-align: center;
   }
   .searchBox {
-    width: 25%;
+    width: 30%;
+    text-align: center;
   }
 `;

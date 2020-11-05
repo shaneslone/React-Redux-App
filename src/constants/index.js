@@ -3,3 +3,5 @@ export const SUMMONER_INFO_URL =
   'https://cors-anywhere.herokuapp.com/https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/';
 export const RANKED_STATS_URL =
   'https://cors-anywhere.herokuapp.com/https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/';
+export const CHALLENGER_URL =
+  'https://cors-anywhere.herokuapp.com/https://na1.api.riotgames.com/lol/league/v4/challengerleagues/by-queue/RANKED_SOLO_5x5';

@@ -4,13 +4,16 @@ import { connect } from 'react-redux';
 import { fetchSummoner } from '../store/actions';
 import { useForm } from '../hooks/useForm';
 import leaguelogo from '../images/leaguelogo.png';
+import { useHistory } from 'react-router-dom';
 
 function Header(props) {
   const [value, handleChanges] = useForm('');
+  const history = useHistory();
 
   const handleSubmit = e => {
     e.preventDefault();
     props.fetchSummoner(value);
+    history.push('/summoner');
   };
   return (
     <StyledHeader>

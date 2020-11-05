@@ -3,6 +3,7 @@ import {
   FETCH_SUMMONER_SUCCESS,
   FETCH_SUMMONER_ERROR,
   FETCH_RANKED_INFO,
+  FETCH_CHALLENGERS,
 } from '../actions';
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
   rankedInfo: [],
   error: '',
   summonerInfo: {},
+  challengers: [],
 };
 
 export const reducer = (state = initialState, action) => {
@@ -35,6 +37,12 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         rankedInfo: action.payload,
+        isLoading: false,
+      };
+    case FETCH_CHALLENGERS:
+      return {
+        ...state,
+        challengers: action.payload,
         isLoading: false,
       };
     default:
