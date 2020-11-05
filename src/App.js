@@ -1,12 +1,13 @@
 import React from 'react';
 import SummonerInfo from './components/SummonerInfo';
 import { GlobalStyle } from './styles';
-import './App.css';
+import Header from './components/Header';
 
 function App() {
   return (
     <>
       <GlobalStyle />
+      <Header />
       <SummonerInfo />
     </>
   );

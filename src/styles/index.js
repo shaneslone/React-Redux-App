@@ -1,4 +1,3 @@
-import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
@@ -35,6 +34,7 @@ export const StyledHeader = styled.header`
   background-color: #c72c41;
   h1 {
     width: 30%;
+    text-align: center;
   }
   .searchBox {
     width: 25%;
