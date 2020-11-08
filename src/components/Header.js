@@ -53,6 +53,13 @@ function Header(props) {
                 <option value='euw1'>EUW</option>
                 <option value='eun1'>EUN</option>
                 <option value='kr'>KR</option>
+                <option value='br1'>BR</option>
+                <option value='jp1'>JP</option>
+                <option value='oc1'>OC</option>
+                <option value='ru'>RU</option>
+                <option value='tr1'>TR</option>
+                <option value='la1'>LAN</option>
+                <option value='la2'>LAS</option>
               </select>
             </label>
           </div>
