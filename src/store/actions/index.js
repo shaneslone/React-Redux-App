@@ -33,12 +33,22 @@ export const fetchSummoner = (summonerName, region) => {
 
     axios
       .get(
-        `${SUMMONER_INFO_URL_1}${region}${SUMMONER_INFO_URL_2}${summonerName}?api_key=${API_KEY}`
+        `${SUMMONER_INFO_URL_1}${region}${SUMMONER_INFO_URL_2}${summonerName}`,
+        {
+          headers: {
+            'X-Riot-Token': API_KEY,
+          },
+        }
       )
       .then(res => {
         dispatch({ type: FETCH_SUMMONER_SUCCESS, payload: res.data });
         return axios.get(
-          `${RANKED_STATS_URL_1}${region}${RANKED_STATS_URL_2}${res.data.id}?api_key=${API_KEY}`
+          `${RANKED_STATS_URL_1}${region}${RANKED_STATS_URL_2}${res.data.id}`,
+          {
+            headers: {
+              'X-Riot-Token': API_KEY,
+            },
+          }
         );
       })
       .then(res => {
@@ -55,7 +65,11 @@ export const fetchChallengers = region => {
     dispatch({ type: FETCH_SUMMONER_START });
 
     axios
-      .get(`${CHALLENGER_URL_1}${region}${CHALLENGER_URL_2}?api_key=${API_KEY}`)
+      .get(`${CHALLENGER_URL_1}${region}${CHALLENGER_URL_2}`, {
+        headers: {
+          'X-Riot-Token': API_KEY,
+        },
+      })
       .then(res => {
         console.log(res.data);
         dispatch({
