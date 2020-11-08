@@ -7,7 +7,6 @@ body{
     padding: 0;
     margin: 0;
 }
-
 `;
 
 export const StyledContainer = styled.div`
@@ -29,6 +28,9 @@ export const RankedInfoCard = styled.div`
   border-radius: 20px;
   border: 1px solid white;
   margin: 1%;
+  :hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 `;
 
 export const StyledHeader = styled.header`

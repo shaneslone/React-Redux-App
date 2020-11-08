@@ -1,7 +1,9 @@
-export const API_KEY = 'RGAPI-797a221d-d028-4b15-8f1a-14db0dea63c7';
+export const API_KEY = 'RGAPI-768fe79f-beac-4a92-9e41-f57c79028804';
+
 export const SUMMONER_INFO_URL =
   'https://cors-anywhere.herokuapp.com/https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/';
 export const RANKED_STATS_URL =
   'https://cors-anywhere.herokuapp.com/https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/';
-export const CHALLENGER_URL =
-  'https://cors-anywhere.herokuapp.com/https://na1.api.riotgames.com/lol/league/v4/challengerleagues/by-queue/RANKED_SOLO_5x5';
+export const CHALLENGER_URL_1 = 'https://cors-anywhere.herokuapp.com/https://';
+export const CHALLENGER_URL_2 =
+  '.api.riotgames.com/lol/league/v4/challengerleagues/by-queue/RANKED_SOLO_5x5';

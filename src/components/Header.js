@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyledHeader } from '../styles';
 import { connect } from 'react-redux';
-import { fetchSummoner } from '../store/actions';
+import { fetchSummoner, setRegion } from '../store/actions';
 import { useForm } from '../hooks/useForm';
 import leaguelogo from '../images/leaguelogo.png';
 import { useHistory } from 'react-router-dom';
 
 function Header(props) {
-  const [value, handleChanges] = useForm('');
+  const [value, handleChanges] = useForm({ summonerName: '', region: 'na1' });
   const history = useHistory();
 
   const handleSubmit = e => {
@@ -15,6 +15,12 @@ function Header(props) {
     props.fetchSummoner(value);
     history.push('/summoner');
   };
+
+  useEffect(() => {
+    props.setRegion(value.region);
+  }, [value]);
+
+  console.log(value);
   return (
     <StyledHeader>
       <h1>League of Legends Summoner Info</h1>
@@ -24,13 +30,28 @@ function Header(props) {
           <label>
             Enter Summoner Name:
             <input
-              name='summoner name'
+              name='summonerName'
               type='text'
-              value={value}
+              value={value.summonerName}
               onChange={handleChanges}
             />
           </label>
           <button>Search</button>
+          <div>
+            <label>
+              Region:
+              <select
+                name='region'
+                value={value.region}
+                onChange={handleChanges}
+              >
+                <option value='na1'>NA</option>
+                <option value='euw1'>EUW</option>
+                <option value='eun1'>EUN</option>
+                <option value='kr'>KR</option>
+              </select>
+            </label>
+          </div>
         </form>
       </div>
     </StyledHeader>
@@ -41,4 +62,4 @@ const mapStateToProps = state => {
   return {};
 };
 
-export default connect(mapStateToProps, { fetchSummoner })(Header);
+export default connect(mapStateToProps, { fetchSummoner, setRegion })(Header);

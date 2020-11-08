@@ -3,7 +3,7 @@ export const useForm = initiaValues => {
   const [value, setValue] = useState(initiaValues);
 
   const handleChanges = e => {
-    setValue(e.target.value);
+    setValue({ ...value, [e.target.name]: e.target.value });
   };
 
   return [value, handleChanges];
