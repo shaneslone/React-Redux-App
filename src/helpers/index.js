@@ -1,3 +1,5 @@
+//takes in region ID and returns a string with the region's name
+
 export const regionName = region => {
   switch (region) {
     case 'na1':

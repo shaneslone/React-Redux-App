@@ -1,27 +1,50 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import ChampionMaster from './RankedInfo';
-import { RankedInfoCard, StyledContainer } from '../styles';
+import { RankedInfoCard, StyledContainer, Spinner } from '../styles';
 import ChampionMastery from './ChampionMastery';
 import { fetchMastery } from '../store/actions';
 import { Link } from 'react-router-dom';
 
 function SummonerInfo(props) {
   const { name, summonerLevel, id } = props.summonerInfo;
-  const { isLoading, error, region, rankedInfo, mastery, fetchMastery } = props;
+  const { isLoading, error, region, rankedInfo, fetchMastery } = props;
 
   useEffect(() => {
     if (id) {
       fetchMastery(id, region);
     }
   }, [id]);
+  if (isLoading) {
+    return (
+      <StyledContainer>
+        <h2>
+          <Link to='/'>Back To Challenger List</Link>
+        </h2>
+        <RankedInfoCard>
+          {isLoading ? <Spinner /> : null}
+          {error ? <p>{error}</p> : null}
+        </RankedInfoCard>
+      </StyledContainer>
+    );
+  }
+
+  if (error) {
+    return (
+      <StyledContainer>
+        <h2>
+          <Link to='/'>Back To Challenger List</Link>
+        </h2>
+        <RankedInfoCard>{<h2>{error}</h2>}</RankedInfoCard>
+      </StyledContainer>
+    );
+  }
   return (
     <StyledContainer>
       <h2>
         <Link to='/'>Back To Challenger List</Link>
       </h2>
       <RankedInfoCard>
-        {isLoading ? <h2>Loading summoner info...</h2> : null}
         {error ? <p>{error}</p> : null}
         <h2>{name}</h2>
         <p>Summoner Level: {summonerLevel}</p>
@@ -46,7 +69,6 @@ const mapStateToProps = state => {
     error: state.error,
     rankedInfo: state.rankedInfo,
     region: state.region,
-    mastery: state.mastery,
   };
 };
 
