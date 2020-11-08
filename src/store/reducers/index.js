@@ -4,6 +4,7 @@ import {
   FETCH_SUMMONER_ERROR,
   FETCH_RANKED_INFO,
   FETCH_CHALLENGERS,
+  FETCH_MASTERY,
   SET_REGION,
 } from '../actions';
 
@@ -14,6 +15,7 @@ const initialState = {
   summonerInfo: {},
   challengers: [],
   region: 'na1',
+  mastery: [],
 };
 
 export const reducer = (state = initialState, action) => {
@@ -51,6 +53,11 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         region: action.payload,
+      };
+    case FETCH_MASTERY:
+      return {
+        ...state,
+        mastery: action.payload,
       };
     default:
       return state;

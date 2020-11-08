@@ -11,3 +11,6 @@ export const RANKED_STATS_URL_2 =
 export const CHALLENGER_URL_1 = 'https://cors-anywhere.herokuapp.com/https://';
 export const CHALLENGER_URL_2 =
   '.api.riotgames.com/lol/league/v4/challengerleagues/by-queue/RANKED_SOLO_5x5';
+export const MASTERY_URL_1 = 'https://cors-anywhere.herokuapp.com/https://';
+export const MASTER_URL_2 =
+  '.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/';

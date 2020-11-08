@@ -7,6 +7,8 @@ import {
   RANKED_STATS_URL_2,
   CHALLENGER_URL_1,
   CHALLENGER_URL_2,
+  MASTERY_URL_1,
+  MASTER_URL_2,
   API_KEY,
 } from '../../constants';
 
@@ -16,6 +18,7 @@ export const FETCH_SUMMONER_ERROR = 'FETCH_SUMMONER_ERROR';
 export const FETCH_RANKED_INFO = 'FETCH_RANKED_INFO';
 export const FETCH_CHALLENGERS = 'FETCH_CHALLENGERS';
 export const SET_REGION = 'SET_REGION';
+export const FETCH_MASTERY = 'FETCH_MASTERY';
 
 const sortByLP = (a, b) => {
   if (a.leaguePoints < b.leaguePoints) {
@@ -86,5 +89,23 @@ export const fetchChallengers = region => {
 export const setRegion = region => {
   return dispatch => {
     dispatch({ type: SET_REGION, payload: region });
+  };
+};
+
+export const fetchMastery = (summoner, region) => {
+  return dispatch => {
+    axios
+      .get(`${MASTERY_URL_1}${region}${MASTER_URL_2}${summoner}`, {
+        headers: {
+          'X-Riot-Token': API_KEY,
+        },
+      })
+      .then(res => {
+        console.log(res);
+        dispatch({ type: FETCH_MASTERY, payload: res.data });
+      })
+      .catch(err => {
+        dispatch({ type: FETCH_SUMMONER_ERROR, payload: err.message });
+      });
   };
 };

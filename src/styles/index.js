@@ -21,6 +21,9 @@ export const StyledContainer = styled.div`
 `;
 
 export const RankedInfoCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 30%;
   background-color: #2d132c;
   color: white;
@@ -28,6 +31,11 @@ export const RankedInfoCard = styled.div`
   border-radius: 20px;
   border: 1px solid white;
   margin: 1%;
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
   :hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
@@ -47,4 +55,17 @@ export const StyledHeader = styled.header`
     width: 30%;
     text-align: center;
   }
+`;
+
+export const MasteryCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  background-color: #2d132c;
+  color: white;
+  padding: 1%;
+  border-radius: 20px;
+  border: 1px solid white;
+  margin: 1%;
 `;
