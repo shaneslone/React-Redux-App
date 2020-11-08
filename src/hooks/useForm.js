@@ -6,5 +6,9 @@ export const useForm = initiaValues => {
     setValue({ ...value, [e.target.name]: e.target.value });
   };
 
-  return [value, handleChanges];
+  const clearSearch = () => {
+    setValue({ ...value, summonerName: '' });
+  };
+
+  return [value, handleChanges, clearSearch];
 };

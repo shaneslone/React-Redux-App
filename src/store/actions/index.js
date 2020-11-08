@@ -1,8 +1,10 @@
 import axios from 'axios';
 
 import {
-  SUMMONER_INFO_URL,
-  RANKED_STATS_URL,
+  SUMMONER_INFO_URL_1,
+  SUMMONER_INFO_URL_2,
+  RANKED_STATS_URL_1,
+  RANKED_STATS_URL_2,
   CHALLENGER_URL_1,
   CHALLENGER_URL_2,
   API_KEY,
@@ -25,16 +27,18 @@ const sortByLP = (a, b) => {
   }
 };
 
-export const fetchSummoner = summonerName => {
+export const fetchSummoner = (summonerName, region) => {
   return dispatch => {
     dispatch({ type: FETCH_SUMMONER_START });
 
     axios
-      .get(`${SUMMONER_INFO_URL}${summonerName}?api_key=${API_KEY}`)
+      .get(
+        `${SUMMONER_INFO_URL_1}${region}${SUMMONER_INFO_URL_2}${summonerName}?api_key=${API_KEY}`
+      )
       .then(res => {
         dispatch({ type: FETCH_SUMMONER_SUCCESS, payload: res.data });
         return axios.get(
-          `${RANKED_STATS_URL}${res.data.id}?api_key=${API_KEY}`
+          `${RANKED_STATS_URL_1}${region}${RANKED_STATS_URL_2}${res.data.id}?api_key=${API_KEY}`
         );
       })
       .then(res => {

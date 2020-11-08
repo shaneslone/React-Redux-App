@@ -7,13 +7,17 @@ import leaguelogo from '../images/leaguelogo.png';
 import { useHistory } from 'react-router-dom';
 
 function Header(props) {
-  const [value, handleChanges] = useForm({ summonerName: '', region: 'na1' });
+  const [value, handleChanges, clearSearch] = useForm({
+    summonerName: '',
+    region: 'na1',
+  });
   const history = useHistory();
 
   const handleSubmit = e => {
     e.preventDefault();
-    props.fetchSummoner(value);
+    props.fetchSummoner(value.summonerName, value.region);
     history.push('/summoner');
+    clearSearch();
   };
 
   useEffect(() => {
