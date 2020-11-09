@@ -12,9 +12,9 @@ export default function RankedInfo(props) {
   } = props.rankedInfo;
   return (
     <RankedInfoCard>
-      <h2>Queue Type: {queueType.replace(/_/g, ' ')}</h2>
+      <h2>{queueType.replace(/_/g, ' ')}</h2>
       <p>
-        Rank: {tier} {rank}
+        Rank: {tier} {tier !== 'CHALLENGER' ? rank : null}
       </p>
       <p>League Points: {leaguePoints}</p>
       <p>

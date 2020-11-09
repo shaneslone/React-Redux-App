@@ -20,10 +20,19 @@ function ChallengersList(props) {
       </StyledContainer>
     );
   }
+  if (error) {
+    return (
+      <StyledContainer>
+        <RankedInfoCard>
+          <h2>{error}</h2>
+        </RankedInfoCard>
+      </StyledContainer>
+    );
+  }
+
   return (
     <StyledContainer>
       <h2>{regionName(region)} Challenger Rankings</h2>
-      <p>{error ? error : null}</p>
       {challengers.map((challenger, index) => (
         <Challenger challenger={challenger} rank={index + 1} />
       ))}
