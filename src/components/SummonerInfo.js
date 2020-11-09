@@ -21,10 +21,7 @@ function SummonerInfo(props) {
         <h2>
           <Link to='/'>Back To Challenger List</Link>
         </h2>
-        <RankedInfoCard>
-          {isLoading ? <Spinner /> : null}
-          {error ? <p>{error}</p> : null}
-        </RankedInfoCard>
+        <RankedInfoCard>{<Spinner />}</RankedInfoCard>
       </StyledContainer>
     );
   }
@@ -48,8 +45,8 @@ function SummonerInfo(props) {
         {error ? <p>{error}</p> : null}
         <h2>{name}</h2>
         <p>Summoner Level: {summonerLevel}</p>
+        <h3>Most Played Champions:</h3>
         <div>
-          <h3>Most Played Champions:</h3>
           <ChampionMastery />
         </div>
       </RankedInfoCard>

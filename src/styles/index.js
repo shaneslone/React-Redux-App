@@ -6,6 +6,7 @@ body{
     color: white;
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 `;
 
@@ -24,7 +25,7 @@ export const RankedInfoCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 30%;
+  width: 50%;
   background-color: #2d132c;
   color: white;
   padding: 1%;
@@ -61,7 +62,7 @@ export const MasteryCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 40%;
+  width: 45%;
   background-color: #2d132c;
   color: white;
   padding: 1%;
