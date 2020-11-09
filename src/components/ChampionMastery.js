@@ -9,7 +9,6 @@ function ChampionMastery(props) {
   const { mastery } = props;
   const topFiveChampions = mastery.slice(0, 5);
   const topFiveInfo = [];
-  console.log(champions);
 
   topFiveChampions.forEach(mastery => {
     topFiveInfo.push(
