@@ -6,9 +6,7 @@ export default function Champion(props) {
   return (
     <MasteryCard>
       <h3>{champion.name}</h3>
-      <div>
-        <img src={champion.icon} alt='champion' />
-      </div>
+      <img src={champion.icon} alt='champion' />
       <p>Champion Level: {masteryInfo.championLevel}</p>
       <p>Mastery Points: {masteryInfo.championPoints}</p>
     </MasteryCard>
