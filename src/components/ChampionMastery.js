@@ -5,8 +5,6 @@ import Champion from './Champion';
 
 import champions from 'lol-champions';
 
-console.log('Champions: ', champions);
-
 function ChampionMastery(props) {
   const { mastery } = props;
   const topFiveChampions = mastery.slice(0, 5);
