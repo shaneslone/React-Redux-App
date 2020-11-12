@@ -1,4 +1,4 @@
-export const API_KEY = 'RGAPI-edce7a99-ae47-4cf7-baa1-e81c66ca9a46';
+export const API_KEY = process.env.REACT_APP_API_KEY;
 
 // API for summoner info, takes unencrypted summoner name
 export const SUMMONER_INFO_URL_1 =
