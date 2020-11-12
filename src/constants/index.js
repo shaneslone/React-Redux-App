@@ -1,4 +1,4 @@
-export const API_KEY = process.env.REACT_APP_API_KEY;
+export const API_KEY = process.env.REACT_APP_API_KEY; // api key from .env
 
 // API for summoner info, takes unencrypted summoner name
 export const SUMMONER_INFO_URL_1 =
