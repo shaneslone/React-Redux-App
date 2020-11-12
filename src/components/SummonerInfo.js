@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import ChampionMaster from './RankedInfo';
+import RankedInfo from './RankedInfo';
 import { RankedInfoCard, StyledContainer, Spinner } from '../styles';
 import ChampionMastery from './ChampionMastery';
 import { fetchMastery } from '../store/actions';
@@ -50,11 +50,9 @@ function SummonerInfo(props) {
           <ChampionMastery />
         </div>
       </RankedInfoCard>
-      {isLoading
-        ? null
-        : rankedInfo.map(rankedQue => (
-            <ChampionMaster key={rankedQue.leagueId} rankedInfo={rankedQue} />
-          ))}
+      {rankedInfo.map(rankedQue => (
+        <RankedInfo key={rankedQue.leagueId} rankedInfo={rankedQue} />
+      ))}
     </StyledContainer>
   );
 }
